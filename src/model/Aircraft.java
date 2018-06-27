@@ -1,6 +1,6 @@
 package model;
 
-import tools.Generator;
+import tools.Global;
 
 public class Aircraft {
 
@@ -19,15 +19,15 @@ public class Aircraft {
     }
 
     public long nextID() {
-        return _id;
+        _idCounter = ++Global.idCount;
+        return _idCounter;
     }
 
     public Aircraft(String _name, Coordinate _coordinate) {
         this._name = _name;
         this._coordinate = _coordinate;
-        _id = Generator.getRandomId();
+        _id = nextID();
     }
-
 
     public long get_id() {
         return _id;

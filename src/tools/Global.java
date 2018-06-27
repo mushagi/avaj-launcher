@@ -2,7 +2,10 @@ package tools;
 
 import java.util.Random;
 
-public class Generator {
+public class Global {
+
+    public static int idCount = 0;
+
     public static int getRandomId()
     {
         int randomID;

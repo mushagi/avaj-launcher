@@ -35,8 +35,7 @@ public class JetPlane extends Aircraft implements Flyable {
         }
 
         if (get_coordinate().get_height() == 0) message = "landing";
-        else
-            message =  "SPECIFIC_MESSAGE and " + weather;
+        else message =  "SPECIFIC_MESSAGE and " + weather;
         logger.info(this.get_type()+ "#"+this.get_name()+"("+this.get_id()+"):" + message);
     }
 

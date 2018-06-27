@@ -25,7 +25,11 @@ public class Tower {
 
     public void unRegister(Flyable flyable) {
         if (observers.contains(flyable))
+        {
+            Aircraft aircraft = (Aircraft) flyable;
+            logger.info("Tower says: " +aircraft.get_type()+"#"+aircraft.get_name()+"("+aircraft.get_id()+") unregistered from " + this.getClass().getSimpleName());
             observers.remove(flyable);
+        }
     }
 
     public void conditionsChanged() {

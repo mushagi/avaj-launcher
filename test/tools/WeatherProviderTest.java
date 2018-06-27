@@ -1,5 +1,6 @@
 package tools;
 
+import CustomException.InvalidRangeOfCoordinateHeight;
 import model.Coordinate;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,9 @@ class WeatherProviderTest {
 
     @Test
     void getCurrentWeather() {
-        Coordinate c1 = new Coordinate(7, 4, 5);
+        Coordinate c1 = null;
+        try {
+            c1 = new Coordinate(7, 4, 5);
         Coordinate c2 = new Coordinate(7, 1, 5);
         Coordinate c3 = new Coordinate(3, 4, 5);
         Coordinate c4 = new Coordinate(7, 5, 5);
@@ -26,6 +29,9 @@ class WeatherProviderTest {
         WeatherProvider.getProvider().getCurrentWeather(c6);
 
         assertEquals(WeatherProvider.getWeatherCoordinates().size(), 4);
+        } catch (InvalidRangeOfCoordinateHeight invalidRangeOfCoordinateHeight) {
+            invalidRangeOfCoordinateHeight.printStackTrace();
+        }
     }
 
     @Test

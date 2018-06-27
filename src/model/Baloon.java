@@ -2,14 +2,14 @@ package model;
 
 import java.util.logging.Logger;
 
-public class Balloon extends Aircraft implements Flyable {
+public class Baloon extends Aircraft implements Flyable {
 
     private WeatherTower _weatherTower;
     Logger logger = Logger.getLogger(this.getClass().getName());
 
-    public Balloon(String _name, Coordinate _coordinate) {
+    public Baloon(String _name, Coordinate _coordinate) {
         super(_name, _coordinate);
-        super.set_type("Balloon");
+        super.set_type("baloon");
     }
 
     @Override
