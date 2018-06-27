@@ -2,23 +2,23 @@ package tools;
 
 import model.Coordinate;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class WeatherProvider {
 
 
-    private static WeatherProvider weatherProvider = new WeatherProvider();
-    private static Map<Coordinate,String> weatherCoordinates = new HashMap<Coordinate,String>();
+    private static final WeatherProvider weatherProvider = new WeatherProvider();
+    private static final Map<Coordinate,String> weatherCoordinates = new HashMap<Coordinate,String>();
+    static String			weather[] = {"RAIN", "RAIN", "FOG", "SNOW"};
 
     public static WeatherProvider getProvider() {
         return weatherProvider;
     }
 
     private WeatherProvider() {
-    }
-
-    public static Collection<Coordinate> getWeatherCoordinates() {
-        return weatherCoordinates.keySet();
     }
 
     public String getCurrentWeather(Coordinate coordinate)
@@ -35,21 +35,7 @@ public class WeatherProvider {
 
     private String generateRandomWeather() {
         Random rand = new Random();
-        int random = rand.nextInt(4) + 1;
-        switch (random)
-        {
-            case 1 : return "RAIN";
-            case 2 : return "SNOW";
-            case 3 : return "SUN";
-            case 4 : return "FOG";
-        }
-        return null;
-    }
-
-    public void randomizeWeather()
-    {
-        for (Coordinate cordinate: weatherCoordinates.keySet()) {
-            weatherCoordinates.put(cordinate, generateRandomWeather());
-        }
+        int random = rand.nextInt(4);
+        return weather[random];
     }
 }

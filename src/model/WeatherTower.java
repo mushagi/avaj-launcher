@@ -9,7 +9,6 @@ public class WeatherTower extends Tower {
     }
 
     public void changeWeather() {
-        WeatherProvider.getProvider().randomizeWeather();
         conditionsChanged();
     }
 }

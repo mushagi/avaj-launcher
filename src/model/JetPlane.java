@@ -1,14 +1,18 @@
 package model;
 
+import tools.Global;
+
 import java.util.logging.Logger;
 
 public class JetPlane extends Aircraft implements Flyable {
 
     private WeatherTower _weatherTower;
+    private final boolean hasLanded;
 
     public JetPlane(String name, Coordinate coordinate) {
         super(name, coordinate);
         super.set_type("JetPlane");
+        hasLanded = false;
     }
 
     @Override
@@ -34,13 +38,22 @@ public class JetPlane extends Aircraft implements Flyable {
                 break;
         }
 
-        if (get_coordinate().get_height() == 0) message = "landing";
+        if (get_coordinate().get_height() == 0) {
+            super.setLanded();
+            message = "landing";
+        }
         else message =  "SPECIFIC_MESSAGE and " + weather;
         logger.info(this.get_type()+ "#"+this.get_name()+"("+this.get_id()+"):" + message);
+        Global.fileLogging.writeToFile(this.get_type() + "#" + this.get_name() + "(" + this.get_id() + "):" + message);
     }
 
     @Override
     public void registerTower(WeatherTower weatherTower) {
         this._weatherTower = weatherTower;
+        _weatherTower.register(this);
+    }
+
+    public boolean isHasLanded() {
+        return hasLanded;
     }
 }

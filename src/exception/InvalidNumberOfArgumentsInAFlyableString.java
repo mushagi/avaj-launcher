@@ -1,4 +1,4 @@
-package CustomException;
+package exception;
 
 public class InvalidNumberOfArgumentsInAFlyableString extends Exception {
 

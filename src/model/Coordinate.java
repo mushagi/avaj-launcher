@@ -1,14 +1,12 @@
 package model;
 
-import CustomException.InvalidRangeOfCoordinateHeight;
-
 public class Coordinate {
 
-    int _latitude;
-    int _height;
-    int _longitude;
+    private int _latitude;
+    private int _height;
+    private int _longitude;
 
-    public Coordinate( int _longitude , int _latitude, int _height ) throws InvalidRangeOfCoordinateHeight {
+    public Coordinate( int _longitude , int _latitude, int _height ) {
         this._latitude = _latitude;
         set_height(_height);
         this._longitude = _longitude;

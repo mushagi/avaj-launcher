@@ -1,8 +1,9 @@
 package model;
 
-import CustomException.InvalidAirCraftType;
 import factory.AircraftFactory;
 import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
 
 class JetPlaneTest {
     @Test
@@ -16,13 +17,8 @@ class JetPlaneTest {
             invalidAirCraftType.printStackTrace();
         }
         WeatherTower tower = new WeatherTower();
-        flyable.registerTower(tower);
+        Objects.requireNonNull(flyable).registerTower(tower);
         flyable.updateConditions();
-
-    }
-
-    @Test
-    void registerTower() {
 
     }
 

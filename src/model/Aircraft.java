@@ -4,29 +4,39 @@ import tools.Global;
 
 public class Aircraft {
 
-    private long _id;
-    private String _name;
-    private Coordinate _coordinate;
-    private long _idCounter;
+    private final long _id;
+    private final String _name;
+    private final Coordinate _coordinate;
+    private static long _idCounter;
     private String _type;
-
-    public String get_type() {
-        return _type;
-    }
-
-    public void set_type(String _type) {
-        this._type = _type;
-    }
-
-    public long nextID() {
-        _idCounter = ++Global.idCount;
-        return _idCounter;
-    }
+    private boolean landed;
 
     public Aircraft(String _name, Coordinate _coordinate) {
         this._name = _name;
         this._coordinate = _coordinate;
         _id = nextID();
+        landed = false;
+    }
+
+    public boolean isLanded() {
+        return landed;
+    }
+
+    public String get_type() {
+        return _type;
+    }
+
+    void setLanded() {
+        this.landed = true;
+    }
+
+    void set_type(String _type) {
+        this._type = _type;
+    }
+
+    private long nextID() {
+        _idCounter = ++Global.idCount;
+        return _idCounter;
     }
 
     public long get_id() {
@@ -39,10 +49,6 @@ public class Aircraft {
 
     public Coordinate get_coordinate() {
         return _coordinate;
-    }
-
-    public void set_name(String _name) {
-        this._name = _name;
     }
 
     public long get_idCounter() {

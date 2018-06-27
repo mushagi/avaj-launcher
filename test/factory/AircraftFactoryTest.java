@@ -1,6 +1,5 @@
 package factory;
 
-import CustomException.InvalidRangeOfCoordinateHeight;
 import model.Aircraft;
 import model.Coordinate;
 import org.junit.jupiter.api.Test;
@@ -11,12 +10,8 @@ class AircraftFactoryTest {
 
     @Test
     void createNewAirCraft() {
-        Coordinate coordinate = null;
-        try {
-            coordinate = new Coordinate(1, 1, 7);
-        } catch (InvalidRangeOfCoordinateHeight invalidRangeOfCoordinateHeight) {
-            invalidRangeOfCoordinateHeight.printStackTrace();
-        }
+        Coordinate coordinate;
+        coordinate = new Coordinate(1, 1, 7);
         Aircraft aircraft = new Aircraft("Helicopter", coordinate);
 
         assertEquals(aircraft.get_coordinate(), coordinate);
@@ -25,12 +20,8 @@ class AircraftFactoryTest {
 
     @Test
     void checkIfRandomIDIsBetween1and1000() {
-        Coordinate coordinate = null;
-        try {
-            coordinate = new Coordinate(1, 1, 7);
-        } catch (InvalidRangeOfCoordinateHeight invalidRangeOfCoordinateHeight) {
-            invalidRangeOfCoordinateHeight.printStackTrace();
-        }
+        Coordinate coordinate;
+            coordinate = new Coordinate(1, 1, 9);
         Aircraft aircraft = new Aircraft("Helicopter", coordinate);
         assertTrue((aircraft.get_id() <= 1));
         assertTrue((aircraft.get_id() >= 1));
@@ -38,12 +29,8 @@ class AircraftFactoryTest {
 
     @Test
     void addObserver() {
-        Coordinate coordinate = null;
-        try {
-            coordinate = new Coordinate(1, 1, 7);
-        } catch (InvalidRangeOfCoordinateHeight invalidRangeOfCoordinateHeight) {
-            invalidRangeOfCoordinateHeight.printStackTrace();
-        }
+        Coordinate coordinate;
+        coordinate = new Coordinate(1, 1, 8);
 
         Aircraft aircraft = new Aircraft("Helicopter", coordinate);
 

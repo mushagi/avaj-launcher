@@ -1,9 +1,6 @@
 package factory;
 
-import CustomException.CouldNotCreateAirCraftException;
-import CustomException.InvalidAirCraftType;
-import CustomException.InvalidRangeOfCoordinateHeight;
-import com.sun.tools.corba.se.idl.InvalidArgument;
+import exception.InvalidAirCraftType;
 import model.*;
 
 public class AircraftFactory{

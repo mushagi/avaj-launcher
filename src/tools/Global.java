@@ -1,16 +1,15 @@
 package tools;
 
-import java.util.Random;
+import logging.FileLogging;
 
 public class Global {
 
     public static int idCount = 0;
+    private static final String LOG_FILE_NAME = "simulation.txt";
+    public static final FileLogging fileLogging = new FileLogging(LOG_FILE_NAME);
 
-    public static int getRandomId()
+    public Global()
     {
-        int randomID;
-        Random rand = new Random();
-        randomID = (rand.nextInt(1000)) + 1;
-        return randomID;
+        idCount = 0;
     }
 }

@@ -1,14 +1,14 @@
 package model;
 
-import CustomException.InvalidNumberOfArgumentsInAFlyableString;
+import exception.InvalidNumberOfArgumentsInAFlyableString;
 import factory.AircraftFactory;
 
 import java.util.ArrayList;
 
 public class Simulation {
 
-    int _numberOfSimulations;
-    ArrayList<Flyable> flyables = new ArrayList<>();
+    private final ArrayList<Flyable> flyables = new ArrayList<>();
+    private int _numberOfSimulations;
     private int _numberOfSimulationsCount;
 
     public int get_numberOfSimulations() {
@@ -33,7 +33,7 @@ public class Simulation {
         return flyables;
     }
 
-    public boolean AddFlyable(String[] flyableStringArray) throws Exception{
+    private void AddFlyable(String[] flyableStringArray) throws Exception {
 
         String type = flyableStringArray[0];
 
@@ -43,19 +43,21 @@ public class Simulation {
         int latitude= Integer.parseInt(flyableStringArray[3]);
         int height= Integer.parseInt(flyableStringArray[4]);
 
-        return flyables.add(AircraftFactory.newAirCraft(type, name, longitude, latitude, height));
+        flyables.add(AircraftFactory.newAirCraft(type, name, longitude, latitude, height));
     }
 
-    public void AddNumberOfSimulations(String numberOfSimulations) {
+    private void AddNumberOfSimulations(String numberOfSimulations) {
         _numberOfSimulationsCount++;
         _numberOfSimulations = Integer.parseInt(numberOfSimulations);
     }
 
 
-    public void addLine(String simulationString)  throws Exception{
+    private void addLine(String simulationString) throws Exception {
 
         String[] flyableStringArray = simulationString.split(" ");
-        if (simulationString.equals("")) return;
+        if (simulationString.equals("")) {
+            return;
+        }
         else if (flyableStringArray.length == 1)
             AddNumberOfSimulations(simulationString);
         else if (flyableStringArray.length != 5)
