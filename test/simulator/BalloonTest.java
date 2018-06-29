@@ -1,18 +1,21 @@
-package model;
+package simulator;
 
-import factory.AircraftFactory;
+import simulator.AircraftFactory;
 import org.junit.jupiter.api.Test;
+import simulator.Flyable;
+import simulator.WeatherTower;
 
 import java.util.Objects;
 
-class JetPlaneTest {
+class baloonTest {
+
+
     @Test
     void updateConditions() {
-
         AircraftFactory aircraftFactory = new AircraftFactory();
         Flyable flyable = null;
         try {
-            flyable = AircraftFactory.newAirCraft("JetPlane","J1", 1, 3, 5);
+            flyable = AircraftFactory.newAirCraft("Baloon","H1", 1, 3, 5);
         } catch (Exception invalidAirCraftType) {
             invalidAirCraftType.printStackTrace();
         }

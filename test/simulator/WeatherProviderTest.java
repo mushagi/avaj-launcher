@@ -1,22 +1,21 @@
-package tools;
+package simulator;
 
-import model.Coordinate;
+import simulator.Coordinates;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import simulator.WeatherProvider;
 
 class WeatherProviderTest {
 
     @Test
     void getCurrentWeather() {
-        Coordinate c1;
+        Coordinates c1;
         try {
-            c1 = new Coordinate(7, 4, 5);
-        Coordinate c2 = new Coordinate(7, 1, 5);
-        Coordinate c3 = new Coordinate(3, 4, 5);
-        Coordinate c4 = new Coordinate(7, 5, 5);
-        Coordinate c5 = new Coordinate(7, 4, 5);
-        Coordinate c6 = new Coordinate(7, 4, 5);
+            c1 = new Coordinates(7, 4, 5);
+        Coordinates c2 = new Coordinates(7, 1, 5);
+        Coordinates c3 = new Coordinates(3, 4, 5);
+        Coordinates c4 = new Coordinates(7, 5, 5);
+        Coordinates c5 = new Coordinates(7, 4, 5);
+        Coordinates c6 = new Coordinates(7, 4, 5);
         WeatherProvider.getProvider().getCurrentWeather(c1);
         WeatherProvider.getProvider().getCurrentWeather(c2);
         WeatherProvider.getProvider().getCurrentWeather(c3);

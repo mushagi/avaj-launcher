@@ -1,7 +1,6 @@
-package model;
+package simulator;
 
-public interface Flyable {
+interface Flyable {
     void updateConditions();
-
     void registerTower(WeatherTower weatherTower);
 }

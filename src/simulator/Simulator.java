@@ -1,20 +1,18 @@
-package controller;
+package simulator;
 
-import model.Flyable;
-import model.Simulation;
-import model.WeatherTower;
-import tools.Global;
+import logging.FileLogging;
+import tools.SimulatorFilesUtil;
 
 import java.util.logging.Logger;
 
-class Simulator {
+public class Simulator {
 
     private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-
     public void runFromFile(String file) {
-        run(file);
-        Global.fileLogging.closeFile();
+        String simulationString = SimulatorFilesUtil.fileToString(file);
+        run(simulationString);
+        FileLogging.getInstance().closeFile();
     }
 
     public void runFromString(String simulationString) {
@@ -25,10 +23,9 @@ class Simulator {
     {
         Simulation simulation = new Simulation(simulationString);
         WeatherTower weatherTower = new WeatherTower();
-        for (Flyable flyable: simulation.getFlyables()) {
+        for (Flyable flyable: simulation.getFlyableArrayList())
             flyable.registerTower(weatherTower);
-        }
-        for (int i = 0; i < simulation.get_numberOfSimulations(); i++) {
+        for (int i = 0; i < simulation.getNumberOfSimulations(); i++) {
             logger.info("Simulation Number : " + i);
             weatherTower.changeWeather();
         }

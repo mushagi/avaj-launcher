@@ -1,7 +1,9 @@
-package model;
+package simulator;
 
-import factory.AircraftFactory;
+import simulator.AircraftFactory;
 import org.junit.jupiter.api.Test;
+import simulator.Flyable;
+import simulator.WeatherTower;
 
 import java.util.Objects;
 
