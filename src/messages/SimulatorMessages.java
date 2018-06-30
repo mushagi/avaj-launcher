@@ -28,29 +28,30 @@ public class SimulatorMessages {
     private void addMessages() {
         ArrayList<String> sunMessages = new ArrayList<String>(){{
             add("It's sunny");
-            add("");
-            add("");
+            add("OMG, like, whatever, it's so hot, whatever");
+            add("And he said, Let there SUN");
         }};
         messages.put("SUN", sunMessages);
 
         ArrayList<String> rainMessages = new ArrayList<String>(){{
             add("It's rainy");
-            add("");
-            add("");
+            add("It's raining ");
+            add("Rain is awesome");
         }};
         messages.put("RAIN", rainMessages);
 
         ArrayList<String> snowMessages = new ArrayList<String>(){{
             add("It's snowy");
-            add("");
-            add("");
+            add("Like, today it's snow and stuff");
+	        add("Holy crap. Today's weather forecast is i can't feel my face");
+	        add("Winter is here. So are the White walkers. But Snow will prevail");
         }};
         messages.put("SNOW", snowMessages);
 
         ArrayList<String> fogMessages = new ArrayList<String>(){{
             add("It's foggy");
-            add("");
-            add("");
+            add("I have been fogged. Hard.");
+            add("it's a mystery");
         }};
         messages.put("FOG", fogMessages);
     }

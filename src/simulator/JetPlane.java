@@ -1,5 +1,6 @@
 package simulator;
 
+import messages.SimulatorMessages;
 import simulator.logging.SimulatorLogger;
 
 class JetPlane extends Aircraft implements Flyable {
@@ -36,6 +37,8 @@ class JetPlane extends Aircraft implements Flyable {
             super.hasLanded();
             message.append("landing");
         }
+        else
+            message.append(SimulatorMessages.getFunnyWeatherMessage(weather));
         SimulatorLogger.log(message.toString());
     }
 

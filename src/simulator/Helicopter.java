@@ -1,5 +1,6 @@
 package simulator;
 
+import messages.SimulatorMessages;
 import simulator.logging.SimulatorLogger;
 
 class Helicopter extends Aircraft implements Flyable {
@@ -36,7 +37,10 @@ class Helicopter extends Aircraft implements Flyable {
             super.hasLanded();
             message.append("landing");
         }
+        else
+            message.append(SimulatorMessages.getFunnyWeatherMessage(weather));
         SimulatorLogger.log(message.toString());
+        
     }
 
     @Override
