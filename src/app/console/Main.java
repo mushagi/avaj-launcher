@@ -1,16 +1,16 @@
+package app.console;
+
 import simulator.Simulator;
-import exception.InvalidFileExtension;
+import simulator.exception.InvalidFileExtension;
 
 class Main
 {
+
     public static void main(String[] args) {
-
         validateArgs(args);
-
         String file = args[0];
 
         Simulator simulator = new Simulator();
-
         simulator.runFromFile(file);
     }
 

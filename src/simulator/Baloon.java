@@ -1,6 +1,6 @@
 package simulator;
 
-import logging.SimulatorLogger;
+import simulator.logging.SimulatorLogger;
 import messages.SimulatorMessages;
 
 class Baloon extends Aircraft implements Flyable {

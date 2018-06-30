@@ -1,6 +1,6 @@
 package simulator;
 
-import exception.InvalidFormatInFlyable;
+import simulator.exception.InvalidFormatInFlyable;
 
 import java.util.ArrayList;
 
@@ -28,8 +28,16 @@ class Simulation {
             }
             if (flyableArrayList.isEmpty())
                 throw new Exception("There must be at least one flyable");
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        catch (NumberFormatException e)
+        {
+
+                Exception exception = new Exception("The first line is not a valid integer");
+            exception.printStackTrace();
+            System.exit(1);
+        }
+        catch (Exception e) {
+           // e.printStackTrace();
             System.exit(1);
         }
     }

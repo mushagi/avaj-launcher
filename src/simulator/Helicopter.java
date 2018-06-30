@@ -1,6 +1,6 @@
 package simulator;
 
-import logging.SimulatorLogger;
+import simulator.logging.SimulatorLogger;
 
 class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
@@ -29,7 +29,7 @@ class Helicopter extends Aircraft implements Flyable {
                 getCoordinates().setLongitude(getCoordinates().getLongitude()+1);
                 break;
             case "SNOW" :
-                getCoordinates().setHeight(getCoordinates().getHeight()+12);
+                getCoordinates().setHeight(getCoordinates().getHeight()-12);
                 break;
         }
         if (getCoordinates().getHeight() == 0) {

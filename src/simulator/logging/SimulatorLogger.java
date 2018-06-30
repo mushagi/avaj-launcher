@@ -1,4 +1,4 @@
-package logging;
+package simulator.logging;
 
 import java.util.logging.Logger;
 

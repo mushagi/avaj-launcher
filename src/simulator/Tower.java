@@ -1,6 +1,6 @@
 package simulator;
 
-import logging.SimulatorLogger;
+import simulator.logging.SimulatorLogger;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package exception;
+package simulator.exception;
 
 public class InvalidAirCraftType extends  Exception{
     public InvalidAirCraftType() {

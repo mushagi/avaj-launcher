@@ -1,4 +1,4 @@
-package exception;
+package simulator.exception;
 
 public class InvalidFormatInFlyable extends Exception {
     public InvalidFormatInFlyable(String line, int number) {

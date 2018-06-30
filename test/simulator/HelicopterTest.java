@@ -1,17 +1,11 @@
 package simulator;
 
-import simulator.AircraftFactory;
 import org.junit.jupiter.api.Test;
-import simulator.Flyable;
-import simulator.WeatherTower;
-
 import java.util.Objects;
 
 class HelicopterTest {
-
     @Test
     void updateConditions() {
-
         AircraftFactory aircraftFactory = new AircraftFactory();
         Flyable flyable = null;
         try {
@@ -49,5 +43,4 @@ class HelicopterTest {
             invalidAirCraftType.printStackTrace();
         }
     }
-
 }

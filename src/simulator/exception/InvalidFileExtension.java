@@ -1,4 +1,4 @@
-package exception;
+package simulator.exception;
 
 public class InvalidFileExtension extends Exception {
     public InvalidFileExtension() {

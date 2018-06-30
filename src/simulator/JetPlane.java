@@ -1,6 +1,6 @@
 package simulator;
 
-import logging.SimulatorLogger;
+import simulator.logging.SimulatorLogger;
 
 class JetPlane extends Aircraft implements Flyable {
 
@@ -44,5 +44,4 @@ class JetPlane extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
     }
-
 }
