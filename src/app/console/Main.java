@@ -26,12 +26,11 @@ class Main
         catch (IllegalArgumentException e)
         {
             System.out.println("Usage : \n  ./avaj_launcher [FILENAME] ");
-            e.printStackTrace();
             System.exit(1);
         }
-        catch (Exception e)
+        catch (InvalidFileExtension e)
         {
-            e.printStackTrace();
+            System.out.println("Invalid extension. It should be at .txt");
             System.exit(1);
         }
     }

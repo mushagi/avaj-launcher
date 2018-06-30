@@ -3,17 +3,17 @@ package messages;
 import java.util.*;
 
 public class SimulatorMessages {
-    public static SimulatorMessages simulatorMessages;
+    private static SimulatorMessages simulatorMessages;
     private Map<String, ArrayList<String>> messages;
 
-    public static SimulatorMessages getInstance()
+    private static SimulatorMessages getInstance()
     {
         if (simulatorMessages == null)
             return new SimulatorMessages();
         return simulatorMessages;
     }
 
-    public SimulatorMessages() {
+    private SimulatorMessages() {
         messages = new HashMap<>();
         addMessages();
     }
@@ -31,7 +31,6 @@ public class SimulatorMessages {
             add("");
             add("");
         }};
-
         messages.put("SUN", sunMessages);
 
         ArrayList<String> rainMessages = new ArrayList<String>(){{

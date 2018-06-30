@@ -1,5 +1,6 @@
 package simulator;
 
+import com.sun.media.sound.InvalidFormatException;
 import simulator.exception.InvalidFormatInFlyable;
 
 import java.util.ArrayList;
@@ -27,17 +28,15 @@ class Simulation {
                 addLine(line.trim());
             }
             if (flyableArrayList.isEmpty())
-                throw new Exception("There must be at least one flyable");
+                throw new InvalidFormatException();
         }
         catch (NumberFormatException e)
         {
-
-                Exception exception = new Exception("The first line is not a valid integer");
-            exception.printStackTrace();
+            System.out.println("The first line is not a number");
             System.exit(1);
         }
         catch (Exception e) {
-           // e.printStackTrace();
+            System.out.println("Invalid simulation format");
             System.exit(1);
         }
     }
