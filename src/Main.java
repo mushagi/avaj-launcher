@@ -1,6 +1,5 @@
 import simulator.Simulator;
 import exception.InvalidFileExtension;
-import exception.InvalidNumberOfArguments;
 
 class Main
 {

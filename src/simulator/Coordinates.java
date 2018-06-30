@@ -31,7 +31,7 @@ class Coordinates {
         this.longitude = longitude;
     }
 
-    protected void setHeight(int height) {
+    void setHeight(int height) {
         if (height > 100)
             this.height = 100;
         else if (height < 0)

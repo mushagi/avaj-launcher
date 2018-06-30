@@ -1,12 +1,11 @@
 package simulator;
 
-import logging.FileLogging;
+import logging.SimulatorLogger;
+import messages.SimulatorMessages;
 
-import java.util.logging.Logger;
 class Baloon extends Aircraft implements Flyable {
 
     private WeatherTower weatherTower;
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     Baloon(String _name, Coordinates _coordinates) {
         super(_name, _coordinates);
@@ -39,9 +38,9 @@ class Baloon extends Aircraft implements Flyable {
         if (getCoordinates().getHeight() == 0) {
             super.hasLanded();
             message.append("landing");
-        }
-        logger.info(message.toString());
-        FileLogging.getInstance().writeToFile(message.toString());
+        } else
+            message.append(SimulatorMessages.getFunnyWeatherMessage(weather));
+        SimulatorLogger.log(message.toString());
     }
 
     @Override

@@ -1,6 +1,6 @@
 package simulator;
 
-import logging.FileLogging;
+import logging.SimulatorLogger;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,21 +20,18 @@ class Tower {
             observers.add(flyable);
             if (flyable instanceof Aircraft) {
                 Aircraft aircraft = (Aircraft) flyable;
-                logger.info("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") registered to " + this.getClass().getSimpleName());
-                FileLogging.getInstance().writeToFile("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") registered to " + this.getClass().getSimpleName());
-
+                SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") registered to " + this.getClass().getSimpleName());
             }
         }
     }
 
     public void unRegister(Flyable flyable) {
         Aircraft aircraft = (Aircraft) flyable;
-        logger.info("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
-        FileLogging.getInstance().writeToFile("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
+        SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
         observers.remove(flyable);
     }
-    protected void conditionsChanged() {
 
+    void conditionsChanged() {
         for (Iterator<Flyable> iterator = observers.iterator(); iterator.hasNext(); ) {
             Flyable observer = iterator.next();
             observer.updateConditions();

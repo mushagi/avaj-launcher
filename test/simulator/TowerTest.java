@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import simulator.Flyable;
 import simulator.Tower;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TowerTest {
     @Test
     void whenAFlyableIsRegisteredItShouldBeAddedToTheObserversInATower() {
@@ -37,7 +35,6 @@ class TowerTest {
         Tower tower = new Tower();
         tower.register(flyable);
         tower.unRegister(flyableTwo);
-        //assertEquals(tower.observers.size(), 1);
         } catch (Exception invalidAirCraftType) {
             invalidAirCraftType.printStackTrace();
         }

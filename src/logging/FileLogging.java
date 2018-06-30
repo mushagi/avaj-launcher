@@ -4,29 +4,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class FileLogging {
-    private String filePath;
+class FileLogging {
+    private final String filePath;
 
     private final PrintWriter printWriter;
     private static FileLogging fileLogging;
 
-    public FileLogging(String filePath) {
-        this.filePath = filePath;
+
+    private FileLogging() {
+        this.filePath = "simulation.txt";
         this.printWriter = createFileReader();
     }
 
-    public static FileLogging getInstance()
+    static FileLogging getInstance()
     {
         if (fileLogging == null)
-            fileLogging = new FileLogging("simulation.txt");
+            fileLogging = new FileLogging();
         return fileLogging;
     }
 
-    public void writeToFile(String data) {
+    void writeToFile(String data) {
         printWriter.println(data);
 
     }
-    public void closeFile() {
+
+
+    void closeFile() {
         printWriter.close();
     }
 

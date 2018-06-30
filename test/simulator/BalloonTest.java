@@ -15,7 +15,7 @@ class baloonTest {
         AircraftFactory aircraftFactory = new AircraftFactory();
         Flyable flyable = null;
         try {
-            flyable = AircraftFactory.newAirCraft("Baloon","H1", 1, 3, 5);
+            flyable = AircraftFactory.newAirCraft("Baloon","H1", 1, 3, 90);
         } catch (Exception invalidAirCraftType) {
             invalidAirCraftType.printStackTrace();
         }

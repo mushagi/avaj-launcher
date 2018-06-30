@@ -1,8 +1,6 @@
 package simulator;
 
-import logging.FileLogging;
-
-import java.util.logging.Logger;
+import logging.SimulatorLogger;
 
 class JetPlane extends Aircraft implements Flyable {
 
@@ -15,7 +13,6 @@ class JetPlane extends Aircraft implements Flyable {
 
     @Override
     public void updateConditions() {
-        Logger logger = Logger.getLogger(this.getClass().getName());
         String weather = weatherTower.getWeather(this.getCoordinates());
         StringBuilder message = new StringBuilder(this.getType()+ "#"+this.getName()+"("+this.getId()+"): ");
         switch (weather)
@@ -39,9 +36,7 @@ class JetPlane extends Aircraft implements Flyable {
             super.hasLanded();
             message.append("landing");
         }
-
-        logger.info(message.toString());
-        FileLogging.getInstance().writeToFile(message.toString());
+        SimulatorLogger.log(message.toString());
     }
 
     @Override

@@ -1,6 +1,6 @@
 package simulator;
 
-import exception.InvaliFormatInFlyable;
+import exception.InvalidFormatInFlyable;
 
 import java.util.ArrayList;
 
@@ -57,7 +57,7 @@ class Simulation {
         if (simulationString.equals("")) return;
         String[] flyableStringArray = simulationString.split(" ");
         if (flyableStringArray.length != 5)
-            throw new InvaliFormatInFlyable(simulationString);
+            throw new InvalidFormatInFlyable(simulationString, flyableStringArray.length );
         else
             AddFlyable(flyableStringArray);
     }

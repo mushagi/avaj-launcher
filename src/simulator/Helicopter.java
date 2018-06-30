@@ -1,12 +1,9 @@
 package simulator;
 
-import logging.FileLogging;
-
-import java.util.logging.Logger;
+import logging.SimulatorLogger;
 
 class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
     Helicopter(String _name, Coordinates _coordinates) {
         super(_name, _coordinates);
@@ -39,9 +36,7 @@ class Helicopter extends Aircraft implements Flyable {
             super.hasLanded();
             message.append("landing");
         }
-
-        logger.info(message.toString());
-        FileLogging.getInstance().writeToFile(message.toString());
+        SimulatorLogger.log(message.toString());
     }
 
     @Override
