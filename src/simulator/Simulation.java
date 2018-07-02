@@ -10,14 +10,15 @@ class Simulation {
     private final ArrayList<Flyable> flyableArrayList = new ArrayList<>();
     private int numberOfSimulations;
 
-    public int getNumberOfSimulations() {
+    int getNumberOfSimulations() {
         return numberOfSimulations;
     }
 
     Simulation(String simulationString) {
 
         int numberOfSimulationString = -1;
-        String[] simulatorStringArray = simulationString.split("\n");
+        int lineCount = 1;
+        String[] simulatorStringArray = simulationString.split("\\n");
         try {
             AddNumberOfSimulations(simulatorStringArray[0]);
             for (String line : simulatorStringArray) {
@@ -25,18 +26,20 @@ class Simulation {
                     numberOfSimulationString++;
                     continue;
                 }
+                lineCount++;
                 addLine(line.trim());
+
             }
             if (flyableArrayList.isEmpty())
                 throw new InvalidFormatException();
         }
         catch (NumberFormatException e)
         {
-            System.out.println("The first line is not a number");
+            System.out.println("Could not convert number at line " + lineCount);
             System.exit(1);
         }
         catch (Exception e) {
-            System.out.println("Invalid simulation format");
+            System.out.println("Invalid simulation format at line " + lineCount);
             System.exit(1);
         }
     }
@@ -62,7 +65,7 @@ class Simulation {
 
     private void addLine(String simulationString) throws Exception {
         if (simulationString.equals("")) return;
-        String[] flyableStringArray = simulationString.split(" ");
+        String[] flyableStringArray = simulationString.split("\\s+");
         if (flyableStringArray.length != 5)
             throw new InvalidFormatInFlyable(simulationString, flyableStringArray.length );
         else

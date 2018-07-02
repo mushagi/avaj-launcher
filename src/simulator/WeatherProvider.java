@@ -20,15 +20,17 @@ public class WeatherProvider {
         for (Coordinates coordinates: weatherCoordinates.keySet()) {
             if (coordinate.getHeight() == coordinates.getHeight() &&
                     coordinate.getLatitude() == coordinates.getLatitude() &&
-                    coordinates.getLongitude() == coordinates.getLongitude())
-                return weatherCoordinates.get(coordinates);
+                    coordinates.getLongitude() == coordinates.getLongitude()) {
+                int seed = coordinates.getHeight() * coordinates.getLongitude() * coordinates.getLatitude();
+                return generateRandomWeather(seed);
+            }
         }
-        weatherCoordinates.put(coordinate, generateRandomWeather());
+        weatherCoordinates.put(coordinate, generateRandomWeather(0));
         return getCurrentWeather(coordinate);
     }
 
-    private String generateRandomWeather() {
-        Random rand = new Random();
+    private String generateRandomWeather(int seed) {
+        Random rand = (seed == 0)? new Random() : new Random(seed);
         int random = rand.nextInt(4);
         return weather[random];
     }

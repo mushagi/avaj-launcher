@@ -27,5 +27,6 @@ public class Simulator {
             SimulatorLogger.logToScreen("Simulation Number : " + i);
             weatherTower.changeWeather();
         }
+        SimulatorLogger.logToScreen("The max simulation has been reached. Not all flyables landed.");
     }
 }

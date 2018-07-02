@@ -1,8 +1,10 @@
 package simulator.logging;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 
 class FileLogging {
     private final String filePath;
@@ -25,7 +27,6 @@ class FileLogging {
 
     void writeToFile(String data) {
         printWriter.println(data);
-
     }
 
 
@@ -35,6 +36,8 @@ class FileLogging {
 
     private PrintWriter createFileReader() {
         try {
+            File file = new File(filePath);
+            Files.deleteIfExists(file.toPath());
             FileWriter fileWriter = new FileWriter(filePath, true);
             return new PrintWriter(fileWriter);
         } catch (IOException e) {

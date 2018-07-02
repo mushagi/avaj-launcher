@@ -4,42 +4,46 @@ import simulator.logging.SimulatorLogger;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Logger;
 
 class Tower {
-
     private final ArrayList<Flyable> observers;
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    public Tower() {
+    Tower() {
         this.observers = new ArrayList<>();
     }
 
-    public void register(Flyable flyable) {
+    void register(Flyable flyable) {
         if (!observers.contains(flyable)) {
             observers.add(flyable);
             if (flyable instanceof Aircraft) {
                 Aircraft aircraft = (Aircraft) flyable;
-                SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") registered to " + this.getClass().getSimpleName());
+                SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() +
+                        "(" + aircraft.getId() + ") registered to " + this.getClass().getSimpleName());
             }
         }
     }
 
-    public void unRegister(Flyable flyable) {
+    private void unRegister(Flyable flyable) {
         Aircraft aircraft = (Aircraft) flyable;
-        SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() + "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
+        SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() +
+                "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
         observers.remove(flyable);
     }
 
     void conditionsChanged() {
         for (Iterator<Flyable> iterator = observers.iterator(); iterator.hasNext(); ) {
             Flyable observer = iterator.next();
-            observer.updateConditions();
             if (observer instanceof Aircraft) {
+                observer.updateConditions();
                 Aircraft aircraft = (Aircraft) observer;
+                SimulatorLogger.logToScreen(aircraft.getName() + " Height " + aircraft.getCoordinates().getHeight());
                 if (aircraft.isLanded()) {
                     iterator.remove();
                     unRegister(observer);
+                }
+                if (observers.size() == 0){
+                    SimulatorLogger.logToScreen("All aircrafts have landed.");
+                    System.exit(0);
                 }
             }
         }

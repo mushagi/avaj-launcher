@@ -5,8 +5,8 @@ import simulator.exception.InvalidFileExtension;
 
 class Main
 {
-
     public static void main(String[] args) {
+
         validateArgs(args);
         String file = args[0];
 
@@ -25,7 +25,7 @@ class Main
         }
         catch (IllegalArgumentException e)
         {
-            System.out.println("Usage : \n  ./avaj_launcher [FILENAME] ");
+            System.out.println("Usage:\n    ./avaj_launcher [FILENAME]");
             System.exit(1);
         }
         catch (InvalidFileExtension e)

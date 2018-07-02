@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SimulatorMessages {
     private static SimulatorMessages simulatorMessages;
-    private Map<String, ArrayList<String>> messages;
+    private final Map<String, ArrayList<String>> messages;
 
     private static SimulatorMessages getInstance()
     {
@@ -22,7 +22,7 @@ public class SimulatorMessages {
         ArrayList<String> weatherMessages = getInstance().messages.get(weather);
         Random rand= new Random();
         int randomNumber = rand.nextInt(weatherMessages.size());
-        return weatherMessages.get(randomNumber);
+        return "weather: "+weather + ": " +(weatherMessages.get(randomNumber));
     }
 
     private void addMessages() {
@@ -30,20 +30,22 @@ public class SimulatorMessages {
             add("It's sunny");
             add("OMG, like, whatever, it's so hot, whatever");
             add("And he said, Let there SUN");
+            add("My eyes, aaa they burn, so bright");
         }};
         messages.put("SUN", sunMessages);
 
         ArrayList<String> rainMessages = new ArrayList<String>(){{
             add("It's rainy");
             add("It's raining ");
-            add("Rain is awesome");
+            add("rain is awesome");
+            add("I'm so wet.");
         }};
         messages.put("RAIN", rainMessages);
 
         ArrayList<String> snowMessages = new ArrayList<String>(){{
             add("It's snowy");
             add("Like, today it's snow and stuff");
-	        add("Holy crap. Today's weather forecast is i can't feel my face");
+	        add("Today's weather forecast: Holy crap i can't feel my face");
 	        add("Winter is here. So are the White walkers. But Snow will prevail");
         }};
         messages.put("SNOW", snowMessages);
