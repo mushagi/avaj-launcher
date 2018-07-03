@@ -4,7 +4,6 @@ import messages.SimulatorMessages;
 import simulator.logging.SimulatorLogger;
 
 class JetPlane extends Aircraft implements Flyable {
-
     private WeatherTower weatherTower;
 
     JetPlane(String name, Coordinates coordinates) {

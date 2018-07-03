@@ -3,7 +3,7 @@ package simulator;
 import simulator.exception.InvalidAirCraftType;
 
 class AircraftFactory {
-    static Flyable newAirCraft(String type, String name, int longitude, int latitude, int height) throws Exception {
+    public static Flyable newAirCraft(String type, String name, int longitude, int latitude, int height) throws Exception {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
         switch (type) {
             case "Helicopter":

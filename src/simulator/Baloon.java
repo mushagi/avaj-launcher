@@ -4,7 +4,6 @@ import simulator.logging.SimulatorLogger;
 import messages.SimulatorMessages;
 
 class Baloon extends Aircraft implements Flyable {
-
     private WeatherTower weatherTower;
 
     Baloon(String _name, Coordinates _coordinates) {

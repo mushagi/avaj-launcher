@@ -1,14 +1,14 @@
 package simulator;
 
 class Aircraft {
+    protected final long id;
+    protected final String name;
+    protected final Coordinates coordinates;
     private static int idCounter;
-    private final long id;
-    private final String name;
-    private final Coordinates coordinates;
     private String type;
     private boolean landed;
 
-    Aircraft(String name, Coordinates coordinates) {
+    protected Aircraft(String name, Coordinates coordinates) {
         this.name = name;
         this.coordinates = coordinates;
         id = nextID();

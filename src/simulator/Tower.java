@@ -12,7 +12,7 @@ class Tower {
         this.observers = new ArrayList<>();
     }
 
-    void register(Flyable flyable) {
+    public void register(Flyable flyable) {
         if (!observers.contains(flyable)) {
             observers.add(flyable);
             if (flyable instanceof Aircraft) {
@@ -23,14 +23,14 @@ class Tower {
         }
     }
 
-    private void unRegister(Flyable flyable) {
+    public void unRegister(Flyable flyable) {
         Aircraft aircraft = (Aircraft) flyable;
         SimulatorLogger.log("Tower says: " + aircraft.getType() + "#" + aircraft.getName() +
                 "(" + aircraft.getId() + ") unregistered from " + this.getClass().getSimpleName());
         observers.remove(flyable);
     }
 
-    void conditionsChanged() {
+    protected void conditionsChanged() {
         for (Iterator<Flyable> iterator = observers.iterator(); iterator.hasNext(); ) {
             Flyable observer = iterator.next();
             if (observer instanceof Aircraft) {

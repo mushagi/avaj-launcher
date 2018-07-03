@@ -1,6 +1,5 @@
 package simulator;
 
-import com.sun.media.sound.InvalidFormatException;
 import simulator.exception.InvalidFormatInFlyable;
 
 import java.util.ArrayList;
@@ -31,15 +30,18 @@ class Simulation {
 
             }
             if (flyableArrayList.isEmpty())
-                throw new InvalidFormatException();
+                throw new InvalidFormatInFlyable("There are no flyables", 0);
         }
         catch (NumberFormatException e)
         {
             System.out.println("Could not convert number at line " + lineCount);
+            System.out.println(e.getMessage());
+
             System.exit(1);
         }
         catch (Exception e) {
             System.out.println("Invalid simulation format at line " + lineCount);
+            System.out.println(e.getMessage());
             System.exit(1);
         }
     }

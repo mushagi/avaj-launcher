@@ -31,6 +31,7 @@ class Main
         catch (InvalidFileExtension e)
         {
             System.out.println("Invalid extension. It should be at .txt");
+            System.out.println(e.getMessage());
             System.exit(1);
         }
     }
